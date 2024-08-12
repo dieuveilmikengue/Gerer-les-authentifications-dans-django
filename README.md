@@ -101,12 +101,9 @@ myproject/
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
-For questions or suggestions, please open an issue or contact me at [your-email@example.com](mailto:your-email@example.com).
+For questions or suggestions, please open an issue or contact me at [your-email@example.com](mailto:emaick9@gmail.com).
 
 
