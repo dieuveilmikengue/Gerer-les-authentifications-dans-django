@@ -102,8 +102,3 @@ myproject/
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
 
-## Contact
-
-For questions or suggestions, please open an issue or contact me at [your-email@example.com](mailto:emaick9@gmail.com).
-
-
