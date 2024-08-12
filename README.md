@@ -23,8 +23,8 @@ This is a simple Django project demonstrating a basic user authentication system
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/mikelebake/gerer-les-authentifications-dans-django.git
+   cd gerer-les-authentifications-dans-django
    ```
 
 2. **Create and activate a virtual environment:**
@@ -78,6 +78,7 @@ This is a simple Django project demonstrating a basic user authentication system
 myproject/
 ├── accounts/
 │   ├── templates/
+|   |   |── home.html
 │   │   ├── accounts/
 │   │   │   ├── signup.html
 │   │   ├── registration/
