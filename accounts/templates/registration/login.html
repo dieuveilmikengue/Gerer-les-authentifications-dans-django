@@ -11,5 +11,7 @@
         {{ form.as_p }}
         <button type="submit">Se connecter</button>
     </form>
+    <p>Vous n'avez pas de compte ? <a href="{% url 'signup' %}">Inscrivez-vous ici</a></p>
+  <p><a href="{% url 'password_reset' %}">Mot de passe oublié ?</a></p> <!-- Lien pour réinitialiser le mot de passe -->
 </body>
 </html>
