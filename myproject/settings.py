@@ -122,13 +122,16 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/'  # Redirige vers la page d'accueil
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.example.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'votre-email@example.com'
-EMAIL_HOST_PASSWORD = 'votre-mot-de-passe'
-DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+#PRODUCTION
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.example.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'votre-email@example.com'
+# EMAIL_HOST_PASSWORD = 'votre-mot-de-passe'
+# DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
