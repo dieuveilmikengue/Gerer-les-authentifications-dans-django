@@ -1,0 +1,36 @@
+<!-- accounts/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'Accueil</title>
+</head>
+<body>
+    <h1>Page d'Accueil</h1>
+
+    <nav>
+        <!-- Menu de navigation -->
+        <ul>
+            {% if user.is_authenticated %}
+                <!-- Formulaire pour la déconnexion -->
+                <li>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Déconnexion</button>
+                    </form>
+                </li>
+            {% else %}
+                <!-- Si l'utilisateur n'est pas connecté, afficher les liens d'inscription et de connexion -->
+                <li><a href="{% url 'signup' %}">Inscription</a></li>
+                <li><a href="{% url 'login' %}">Connexion</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% if user.is_authenticated %}
+        <p>Bonjour, {{ user.username }}!</p> <!-- Affiche le nom de l'utilisateur -->
+    {% else %}
+        <p>Bienvenue, visiteur ! Connectez-vous pour voir votre nom d'utilisateur.</p>
+    {% endif %}
+</body>
+</html>
