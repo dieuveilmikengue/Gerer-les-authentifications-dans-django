@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Todolist{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'todolist/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Todolist</h1>
+        <nav>
+            <a href="{% url 'todolist:todo_list' %}">Home</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">Profile</a>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Déconnexion</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block content %}
+        <!-- Content specific to each page will go here -->
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Todolist</p>
+    </footer>
+</body>
+</html>

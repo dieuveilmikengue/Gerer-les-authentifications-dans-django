@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Liste des tâches de {{ user.username }}</h2>
+  <ul>
+    {% for todo in todos %}
+      <li>
+        <strong>{{ todo.title }}</strong> - {{ todo.description }}
+        {% if todo.completed %} (Complétée) {% endif %}
+        <br>
+        <a href="{% url 'todolist:todo_update' todo.id %}">Modifier</a> | 
+        <a href="{% url 'todolist:todo_delete' todo.id %}">Supprimer</a>
+      </li>
+    {% empty %}
+      <li>Vous n'avez pas encore de tâches.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'todolist:todo_create' %}">Ajouter une nouvelle tâche</a>
+{% endblock %}

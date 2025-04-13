@@ -1,17 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>Inscription</title>
 </head>
 <body>
-    <h2>Inscription</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">S'inscrire</button>
-    </form>
-    <p>Vous avez déjà un compte ? <a href="{% url 'login' %}">Connectez-vous ici</a></p>
-  <p>Mot de passe oublié ? <a href="{% url 'password_reset' %}">Réinitialisez votre mot de passe</a></p> <!-- Lien pour réinitialiser le mot de passe -->
+    <div class="form-container">
+        <h2>Inscription</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">S'inscrire</button>
+        </form>
+        <p>Vous avez déjà un compte ? <a href="{% url 'login' %}">Connectez-vous ici</a></p>
+      <p>Mot de passe oublié ? <a href="{% url 'password_reset' %}">Réinitialisez votre mot de passe</a></p> <!-- Lien pour réinitialiser le mot de passe -->
+    </div>
 </body>
 </html>

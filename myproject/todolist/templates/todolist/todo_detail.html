@@ -1,0 +1,11 @@
+{% extends 'todolist/base.html' %}
+
+{% block title %}Todo Details{% endblock %}
+
+{% block content %}
+    <h2>{{ todo.title }}</h2>
+    <p>{{ todo.description }}</p>
+    <p>Status: {{ todo.completed|yesno:"Completed,Not completed" }}</p>
+    <a href="{% url 'todolist:todo_update' todo.id %}">Edit</a>
+    <a href="{% url 'todolist:todo_delete' todo.id %}">Delete</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Êtes-vous sûr de vouloir supprimer cette tâche ?</h2>
+  <p>{{ todo.title }}</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmer</button>
+  </form>
+  <a href="{% url 'todolist:todo_list' %}">Annuler</a>
+{% endblock %}

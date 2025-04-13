@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Inscription</title>
+</head>
+<body>
+    <h1>Profil de {{ user.username }}</h1>
+    <p>Email: {{ user.email }}</p>
+    <p>Nom: {{ user.first_name }}</p>
+    <p>Prénom: {{ user.last_name }}</p>
+    <a href="{% url 'home' %}">Voir mon profil</a>
+    <a href="{% url 'todolist:todo_list' %}">Home</a>
+</body>
+</html>

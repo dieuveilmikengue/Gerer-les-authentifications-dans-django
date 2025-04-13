@@ -2,21 +2,20 @@
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm
+from .forms import CustomUserCreationForm
+from .models import CustomUser
+from django.contrib.auth.decorators import login_required
 
 # Vue pour l'inscription des utilisateurs
 def signup_view(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()  # Crée un nouvel utilisateur
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)  # Connecte l'utilisateur
-            return redirect('home')  # Redirige vers la page d'accueil
+            user = form.save()
+            login(request, user)
+            return redirect('home')
     else:
-        form = SignUpForm()
+        form = CustomUserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
 
 def home(request):
@@ -28,3 +27,9 @@ def home(request):
 
     # Passez le nom d'utilisateur au template
     return render(request, 'home.html', {'username': username})
+
+@login_required
+def profile(request):
+    """Affiche les informations du profil de l'utilisateur."""
+    user = request.user  # Récupère l'utilisateur connecté
+    return render(request, 'accounts/profile.html', {'user': user})
